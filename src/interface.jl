@@ -115,14 +115,14 @@ reverse(e::AbstractEdge) = _NI("reverse")
 
 Return the type of graph `g`'s edge
 """
-edgetype(g::AbstractGraph) = _NI("edgetype")
+function edgetype end
 
 """
     eltype(g)
 
 Return the type of the graph's vertices (must be <: Integer)
 """
-eltype(g::AbstractGraph) = _NI("eltype")
+function eltype end
 
 """
     nv(g)
@@ -137,7 +137,7 @@ julia> nv(SimpleGraph(3))
 3
 ```
 """
-nv(g::AbstractGraph) = _NI("nv")
+function nv end
 
 """
     ne(g)
@@ -154,7 +154,7 @@ julia> ne(g)
 2
 ```
 """
-ne(g::AbstractGraph) = _NI("ne")
+function ne end
 
 """
     vertices(g)
@@ -177,7 +177,7 @@ julia> collect(vertices(SimpleGraph(4)))
  4
 ```
 """
-vertices(g::AbstractGraph) = _NI("vertices")
+function vertices end
 
 """
     edges(g)
@@ -203,7 +203,7 @@ julia> collect(edges(g))
  Edge 2 => 3
 ```
 """
-edges(g) = _NI("edges")
+function edges end
 
 """
     is_directed(G)
@@ -225,8 +225,8 @@ julia> is_directed(SimpleDiGraph(2))
 true
 ```
 """
-is_directed(::G) where {G} = is_directed(G)
-is_directed(::Type{T}) where {T} = _NI("is_directed")
+function is_directed end
+is_directed(::G) where {G <: AbstractGraph} = is_directed(G)
 
 """
     has_vertex(g, v)
@@ -244,7 +244,7 @@ julia> has_vertex(SimpleGraph(2), 3)
 false
 ```
 """
-has_vertex(x, v) = _NI("has_vertex")
+function has_vertex end
 
 """
     has_edge(g, s, d)
@@ -272,7 +272,7 @@ julia> has_edge(g, 2, 1)
 false
 ```
 """
-has_edge(g, s, d) = _NI("has_edge")
+function has_edge end
 has_edge(g, e) = has_edge(g, src(e), dst(e))
 
 """
@@ -295,7 +295,7 @@ julia> inneighbors(g, 4)
  5
 ```
 """
-inneighbors(x, v) = _NI("inneighbors")
+function inneighbors end
 
 """
     outneighbors(g, v)
@@ -316,7 +316,7 @@ julia> outneighbors(g, 4)
  5
 ```
 """
-outneighbors(x, v) = _NI("outneighbors")
+function outneighbors end
 
 """
     zero(G)

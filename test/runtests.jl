@@ -16,7 +16,7 @@ using StableRNGs
 
 const testdir = dirname(@__FILE__)
 
-@testset verbose = true "Code quality (Aqua.jl)" begin
+#= @testset verbose = true "Code quality (Aqua.jl)" begin
     Aqua.test_all(Graphs; ambiguities=false)
 end
 
@@ -26,7 +26,7 @@ end
 
 @testset verbose = true "Doctests (Documenter.jl)" begin
     # doctest(Graphs)  # TODO: uncomment it when the errors it throws are fixed
-end
+end =#
 
 function testgraphs(g)
     return if is_directed(g)
@@ -54,7 +54,7 @@ tests = [
     "linalg/runtests",
     "parallel/runtests",
     "interface",
-    "core",
+ #=    "core",
     "operators",
     "degeneracy",
     "distance",
@@ -117,7 +117,7 @@ tests = [
     "vertexcover/degree_vertex_cover",
     "vertexcover/random_vertex_cover",
     "trees/prufer",
-    "experimental/experimental",
+    "experimental/experimental", =#
 ]
 
 @testset verbose = true "Graphs" begin

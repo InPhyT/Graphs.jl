@@ -7,7 +7,7 @@ mutable struct DummyEdge <: AbstractEdge{Int} end
     dummydigraph = DummyDiGraph()
     dummyedge = DummyEdge()
 
-    @test_throws Graphs.NotImplementedError is_directed(DummyGraph)
+    @test_throws MethodError is_directed(DummyGraph)
     @test_throws Graphs.NotImplementedError zero(DummyGraph)
 
     for edgefun in [src, dst, Pair, Tuple, reverse]
