@@ -226,7 +226,6 @@ true
 ```
 """
 function is_directed end
-is_directed(::G) where {G <: AbstractGraph} = is_directed(G)
 
 """
     has_vertex(g, v)
@@ -273,7 +272,6 @@ false
 ```
 """
 function has_edge end
-has_edge(g, e) = has_edge(g, src(e), dst(e))
 
 """
     inneighbors(g, v)

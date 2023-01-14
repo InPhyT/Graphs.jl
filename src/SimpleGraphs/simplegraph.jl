@@ -399,6 +399,13 @@ Return `true` if `g` is a directed graph.
 """
 is_directed(::Type{<:SimpleGraph}) = false
 
+"""
+    is_directed(g)
+
+Return `true` if `g` is a directed graph.
+"""
+is_directed(::SimpleGraph) = false
+
 function has_edge(g::SimpleGraph{T}, s, d) where {T}
     verts = vertices(g)
     (s in verts && d in verts) || return false  # edge out of bounds

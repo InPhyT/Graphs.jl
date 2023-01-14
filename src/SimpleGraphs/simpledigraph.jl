@@ -386,6 +386,7 @@ function ==(g::SimpleDiGraph, h::SimpleDiGraph)
            badj(g) == badj(h)
 end
 
+is_directed(::SimpleDiGraph) = true
 is_directed(::Type{<:SimpleDiGraph}) = true
 
 function has_edge(g::SimpleDiGraph{T}, s, d) where {T}
